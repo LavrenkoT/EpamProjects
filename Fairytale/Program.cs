@@ -1,33 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Fairytale
 {
     class Program
     {
-
+        private static void SelectItem()
+        {
+            Console.WriteLine("Спросила Фея у Золушки, о которой карете она мечтает?");
+            Console.WriteLine("1. Красная\n2. Зеленая");
+        }
         static void Main()
         {
             Stepmother evilWoman = new Stepmother();
             Cinderella stepdaughter = new Cinderella();
+            Fairy godmother = new Fairy();
+            stepdaughter.onCount += godmother.Magic;
             var tasks = evilWoman.GetTasks();
             Console.WriteLine(" В одном царстве, некотором государстве жила-была Золушка, и была у нее Мачеха.\n " +
                 "Как-то случился в этом царстве бал, и хотела Золушка на него попасть, \n" +
                 "но злая Мачеха выдала Золушке список поручений:\n");
             tasks.ToList().ForEach(i => Console.Write($"- {i}\n"));
             Console.WriteLine("\n Взгруснула Золушка, но решила, что все успеет и принялась за дело.\n" +
-                " Сделала бедная падчирица все задания злобной мачухи.");
-            if (stepdaughter.TryExecute(tasks.Union(new[] { new Task("Бал", 10) })))
+                " Сделала бедная падчирица все задания злобной мачехи.");
+            if (!stepdaughter.TryExecute(tasks.Union(new[] { new Task("Бал", 10) })))
             {
-                Console.WriteLine(" И у Золушки хватило енергии и она поехала на бал.");
+                Console.WriteLine(" Но у Золушки не хватило енергии на бал и она грустная пошла спатоньки.");
+                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine(" Но у Золушки не хватило енергии на бал и она грустная пошла спатоньки.");
+                Thread.Sleep(5000);
+                Console.Clear();
+                SelectItem();
+                int choice;
+                while (!Int32.TryParse(Console.ReadLine(), out choice) && choice !=1 && choice != 2)
+                {
+                    Console.WriteLine("Ой ошибочка");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                    SelectItem();
+                }
+                switch (choice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Золушка уехала на балл на красной карете.");
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Золушка уехала на балл на зеленой карете.");
+                        break;
+                }
+                Console.ReadLine();
             }
-
-            Console.ReadLine();
         }
     }
     class Cinderella
@@ -47,8 +75,17 @@ namespace Fairytale
             var restEnergy = Energy - requiredEnergy;
             var isEnergyEnough = restEnergy >= 0;
             Energy = isEnergyEnough ? restEnergy : Energy;
+            if (isEnergyEnough)
+            {
+                onCount();
+            }
+
             return isEnergyEnough;
         }
+
+        public delegate void MethodContainer();
+
+        public event MethodContainer onCount;
     }
     class Task
     {
@@ -86,5 +123,15 @@ namespace Fairytale
             var currentTasks = tasks.PickRandom(5);
             return currentTasks;
         }
+    }
+
+    class Fairy
+    {
+        public void Magic()
+        {
+            Console.WriteLine(" И у Золушки хватило енергии и к ней пришла Фея Крестная");
+        }
+
+        public void WhatCoachNeed() { }
     }
 }
