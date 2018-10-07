@@ -1,0 +1,134 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family:sans-serif;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.bar-block .bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: center;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    height: 100%;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+    right:0;
+}
+
+.btn, .button {
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+#GoToTop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #1E9C79; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#GoToTop:hover, #ReadMore:hover, #Submit:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+#ReadMore, #Submit {
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #1E9C79; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 14px; /* Increase font size */
+}
+#TextArea {
+    width: 100%;
+    color: #000;
+    outline: none;
+    font-size: 14px;
+    padding: .6em 1em;
+    margin: 0px 0px 20px;
+    border: 1px solid #000;
+    -webkit-appearance: none;
+    display: inline-block;
+    background: rgb(255, 255, 255);
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    box-sizing: border-box;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    padding-right: 10px;
+}
+
+.pull-right {
+    float: left !important;
+}
+
+.width-40-pct {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .width-40-pct {
+        max-width: 5%;
+        width: 5%;
+    }
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+.radioElement {
+    margin: 0px;
+}

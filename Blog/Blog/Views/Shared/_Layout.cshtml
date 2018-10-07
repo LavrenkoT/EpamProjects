@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryunobtrusive")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <a href='@Url.Action("Index", "Home")'>
+                    <img src='@Url.Content("~/Content/Img/Blog_logo.png")' class="logo" />
+                </a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("My Blog", "Index", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="sidebar bar-block col-xs-1">
+            <h3 class="bar-item">Menu</h3>
+            @Html.ActionLink("Главная", "Index", "Home", new { @class = "bar-item button" })
+            @Html.ActionLink("Гостевая", "About", "Home", new { @class = "bar-item button" })
+            @Html.ActionLink("Анкета", "Contact", "Home", new { @class = "bar-item button" })
+        </div>
+        <div class="row col-xs-11">
+            @RenderBody()
+        </div>
+        <footer class="row col-xs-12">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Blog</p>
+            <button onclick="topFunction()" id="GoToTop" title="Go to top">Top</button>
+        </footer>
+    </div>
+</body>
+</html>

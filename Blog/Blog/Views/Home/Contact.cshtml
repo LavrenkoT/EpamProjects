@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Questionary";
+}
+@model Blog.Models.QuestionaryModel
+<h2>@ViewBag.Title</h2>
+
+<div class="porduct-order-agile">
+    @using (Ajax.BeginForm(actionName: "Action",
+                            controllerName: "Questionary",
+                            routeValues: null,
+                            ajaxOptions: new AjaxOptions() { HttpMethod = "POST", OnSuccess = "openView", OnFailure = "showError" },
+                            htmlAttributes: new { enctype = "application/json", id = "questionaryForm" }))
+    {
+        <div>
+            <div class="form-group-w3l">
+                <p>Name</p>
+                <input type="text" id="Name" name="Name" placeholder="" required="">
+            </div>
+            <div>
+                <div>
+                    <p>Select your gender</p>
+                </div>
+                @Html.RadioButton("Gender", "Male", true) Male
+                @Html.RadioButton("Gender", "Female") Female
+                <div>
+                    <p>What kind of sport do you prefer?</p>
+                </div>
+                @foreach (var item in new[] { "Aikido", "Football", "Skiing", "Car Racing" })
+                {
+                    <div class="form-check">
+
+                        @Html.CheckBox("Sports", false, new { id = @item, value = @item, classes = "form-check-input" })
+                        <label class="form-check-label">@item</label>
+                    </div>
+                }
+                <button type="submit" class="btn btn-primary" id="Submit">Submit</button>
+                <button  type="button" class="btn btn-primary" onclick="openPreview(); ">Preview</button>
+            </div>
+        </div>
+    }
+</div>
