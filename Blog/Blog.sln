@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog", "Blog\Blog.csproj", "{32ACBC9E-1D70-4956-B0B7-D7F5A8A58A94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.DB", "Blog.DB\Blog.DB.csproj", "{3790A5DB-26DB-45F6-B589-FF6D8C92BAF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{32ACBC9E-1D70-4956-B0B7-D7F5A8A58A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32ACBC9E-1D70-4956-B0B7-D7F5A8A58A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32ACBC9E-1D70-4956-B0B7-D7F5A8A58A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3790A5DB-26DB-45F6-B589-FF6D8C92BAF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3790A5DB-26DB-45F6-B589-FF6D8C92BAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3790A5DB-26DB-45F6-B589-FF6D8C92BAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3790A5DB-26DB-45F6-B589-FF6D8C92BAF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
